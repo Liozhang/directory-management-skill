@@ -1,0 +1,8 @@
+# 运行残留排除（standard M9；白名单式不必需——本目录全为文档，默认全入）
+__pycache__/
+*.pyc
+*.tmp
+*.swp
+~$*
+.DS_Store
+Thumbs.db
