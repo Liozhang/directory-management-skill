@@ -7,9 +7,20 @@
 
 把「先摸清依赖再动文件、新增必登记」从个人自觉，变成**可执行、可审计、可迁移**的工程标准。
 
+## Overview (English)
+
+A universal directory & file management standard for Claude Code and human teams — one skill enforcing how project data is **structured, named, registered, migrated, and archived**, across all domains (research, software, quality systems, clinical/regulatory, legal & finance, academia).
+
+- **62 clauses** — D1–D13 structure · N1–N7 directory naming · F1–F16 file naming · M1–M26 registration & archival mechanisms
+- **7 scenario indexes** (clinical/GxP, R&D & patent, wet-lab, software & data platforms, quality & regulated ops, legal/finance/archives, academia & open science) — open registry, extend per domain
+- **25-item self-check list**, three-level migration verification (file / reference / functional), standardized project scaffolds, worked examples with anti-patterns
+- Authoritative text in Chinese; technical terms kept in original English (HGNC, MANIFEST, lock file…)
+
+Usage: keep this directory anywhere (e.g. `~/aisoft/`), mount it from your `CLAUDE.md`, and `SKILL.md` auto-triggers in Claude Code sessions.
+
 ## 为什么需要它
 
-- 目录漂移靠肉眼盘点——19 个未登记脚本滞留两个月才被发现，17.8 GB 下机数据落错根层
+- 目录漂移靠肉眼盘点——19 个未登记脚本滞留两个月才被发现，数十 GB 下机数据落错根层
 - 迁移重组路径断裂——md5 校验通过、脚本却跑不通，「输出未变」的假阳性掩盖断链
 - 命名随意不可审计——`final (copy) 2.xlsx` 式文件名让追溯与归档无从下手
 
@@ -44,7 +55,7 @@ directory-management-skill/
 | 版本 | v3.1（2026-11-11） |
 | 类型 | 工作规范 skill（SKILL.md frontmatter 触发） |
 | 上游引用方 | `~/.claude/CLAUDE.md`「目录与文件管理」节；项目记忆 directory-management-spec |
-| 代码仓库 | GitHub `directory-management-skill` |
+| 代码仓库 | GitHub `directory-management-skill`（公开） |
 | 沿革 | 见下「版本时间线」 |
 
 ## 版本时间线
@@ -70,3 +81,7 @@ directory-management-skill/
 ## 变更流程
 
 对本标准的条款修订走 standard §7 结构级变更流程：引用扫描 → 修订 → 版本号递增 → 版本记录追加 → 通知引用方更新 → git 提交（本目录已是 git 仓库）。
+
+## License
+
+[CC BY 4.0](LICENSE) — 署名 4.0 国际：署名即可自由复制、分发、改编（含商用）；条款正文为中文权威文本。

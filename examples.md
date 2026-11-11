@@ -18,7 +18,7 @@ methylation_panel_dev/                     # 项目根（N1 snake_case；组合�
 │
 ├─ configs/                                # M20 路径与参数唯一出口
 │  ├─ paths.yaml                           #   全库路径定义（脚本禁裸写绝对路径）
-│  └─ gates_v2.2.yaml                      #   冻结参数（版本随代次，M22 精神）
+│  └─ gates_v1.0.yaml                      #   冻结参数（版本随代次，M22 精神）
 │
 ├─ data_GSE186458/                         # N2 登录号原样；§1 对象逻辑；F12 build 由 README 声明
 │  ├─ <原始 bigWig ×N>                     # D1 只读；M8 入库即校验
@@ -28,7 +28,7 @@ methylation_panel_dev/                     # 项目根（N1 snake_case；组合�
 ├─ data_hg38/                              # M22 参考数据版本目录化（build 即目录名）
 ├─ data_gnomad_v3.1.2/                     # M22 版本入名；目录内禁止替换文件
 │
-├─ data_AGT-TB2122V1/                      # N2 厂商批次号原样；§11 湿实验触发
+├─ data_VendorX-Lot2026A/                  # N2 厂商批次号原样；§11 湿实验触发
 │  ├─ <FASTQ/BCL 原始文件…>                # M8 认证真实副本（不拆包不改结构）
 │  └─ README.md                            # M17 五件套+M11 人遗登记（见 §4）
 │
@@ -57,9 +57,9 @@ methylation_panel_dev/                     # 项目根（N1 snake_case；组合�
 │     └─ run_meta.yaml                     # D2 软件版本/参数/种子+PRNG/MANIFEST 引用
 │
 ├─ 02_final/
-│  ├─ panel_markers_hypo_v2.3.tsv          # F2 定型产物版本号末段
-│  ├─ panel_markers_hyper_v2.3.tsv
-│  └─ delivery_panel-v2.3_20261120/        # §8 交付包独立目录+MANIFEST.md5
+│  ├─ panel_markers_hypo_v2.0.tsv          # F2 定型产物版本号末段
+│  ├─ panel_markers_hyper_v2.0.tsv
+│  └─ delivery_panel-v2.0_20261120/        # §8 交付包独立目录+MANIFEST.md5
 │     └─ MANIFEST.md5                      #   交付后 D11 封存（chmod -R a-w）
 │
 ├─ docs/
@@ -89,7 +89,7 @@ methylation_panel_dev/                     # 项目根（N1 snake_case；组合�
 
 | 实例 | 依据 |
 |------|------|
-| `panel_markers_hypo_v2.3.tsv` | F2 模板+版本末段；F1c 裸限定词禁用（非 `final`）；F5 小写；F9 .tsv |
+| `panel_markers_hypo_v2.0.tsv` | F2 模板+版本末段；F1c 裸限定词禁用（非 `final`）；F5 小写；F9 .tsv |
 | `gse275017_beta-contribution_ranking_20261111.tsv` | F3 数据集域`_`属性域（beta-contribution 域内`-`）`_`操作域`_`日期域 |
 | `segments_kidney_hg38_20261111.tsv` | F12 坐标件带 build；F4 ISO 8601 紧凑式 |
 | `kidney01_ingest.py` / `kidney02b_re-segment.py` | F8 线内编号；N5 字母后缀插入 |
@@ -98,14 +98,14 @@ methylation_panel_dev/                     # 项目根（N1 snake_case；组合�
 | `VAL-RPT-017-v3_panel-performance.pdf` | F16 受控编号 `<类别>-<序号>-v<版本>`（域内`-`连接） |
 | `pre_direction-fix_20260911/` | D6 backup 命名规范 |
 | `contract…_signed.pdf`（例三） | F2 对象_属性_日期_状态 |
-| `gse186458_wbc-annotation_v2.2_20261101_02.tsv` | F2 同日多版本 `_日期_序号` |
+| `gse186458_wbc-annotation_v1.2_20261101_02.tsv` | F2 同日多版本 `_日期_序号` |
 
 ### 3. README.md 结构表（M1 + D13 + M25 三机制合一张表）
 
 | 目录/文件 | 用途 | status | owner | 分级 | 保管期限 |
 |-----------|------|--------|-------|------|----------|
 | data_GSE186458 | 公共甲基化数据集（21 器官 bigWig） | active | yzhuang | 内部 | 项目归档+5 年 |
-| data_AGT-TB2122V1 | 厂商 BisCap 测序下机包（M17/M11） | active | yzhuang | 受限 | ≥10 年（GCP） |
+| data_VendorX-Lot2026A | 厂商靶向甲基化测序下机包（M17/M11） | active | yzhuang | 受限 | ≥10 年（GCP） |
 | data_hg38 / data_gnomad_v3.1.2 | 参考数据（版本目录化） | active | yzhuang | 内部 | 随代次更新 |
 | subject-linkage | 受试者编号-身份映射（F11） | active | yzhuang | 机密 | 10 年；不入 git、不入共享 |
 | 01_intermediate | 可重建中间产物 | active | yzhuang | 内部 | final 验证后按 M14 清理 |
@@ -113,16 +113,16 @@ methylation_panel_dev/                     # 项目根（N1 snake_case；组合�
 | archive/v1-markers-20260301 | 已废弃 v1 代次 | archived | yzhuang | 内部 | 永久（仅供追溯） |
 | explore/scaling-test_20261015 | 探索产物 | dormant（6 个月无更新） | yzhuang | 内部 | 定期盘点处置 |
 
-### 4. data_AGT-TB2122V1/README.md（M17 五件套 + M11 人遗登记）
+### 4. data_VendorX-Lot2026A/README.md（M17 五件套 + M11 人遗登记）
 
 ```markdown
-# data_AGT-TB2122V1 — BisCap 测序下机包（认证真实副本）
+# data_VendorX-Lot2026A — 靶向甲基化测序下机包（认证真实副本）
 - 来源机构：××测序公司（回传包原样入库，未拆改）
-- 入库日期：2026-11-05；文件数：24；总大小：17.8 GB；MD5 清单：MANIFEST.md5
+- 入库日期：2026-11-05；文件数：24；总大小：21.5 GB；MD5 清单：MANIFEST.md5
 - M17 五件套：
   ① 仪器原始输出：BCL→FASTQ 直录入库，未经人工转录
   ② 试剂/耗材 lot：Library-Kit lot#20260812A、Conversion-Enzyme lot#20260901B
-  ③ protocol 版本：BisCap-v1.2
+  ③ protocol 版本：bisep-v1.2
   ④ 储存条件：-80 °C，冻融 1 次
   ⑤ 操作者与日期：×××，2026-11-05
 - M11 人遗登记：样本来源机构××医院；伦理批号××-2026-017；人遗备案号××
@@ -135,7 +135,7 @@ methylation_panel_dev/                     # 项目根（N1 snake_case；组合�
 # M20 路径唯一出口——脚本一律 from configs import paths，禁止裸写绝对路径
 raw:
   gse186458: /data3/projects/methylation_panel_dev/data_GSE186458
-  agt_tb2122v1: /data3/projects/methylation_panel_dev/data_AGT-TB2122V1
+  vendorx_lot2026a: /data3/projects/methylation_panel_dev/data_VendorX-Lot2026A
 ref:
   hg38: /data3/projects/methylation_panel_dev/data_hg38
   gnomad: /data3/projects/methylation_panel_dev/data_gnomad_v3.1.2
@@ -151,7 +151,7 @@ logs: /data3/projects/methylation_panel_dev/logs
 |------|----|------|------|----------|
 | kidney01_ingest.py | kidney-line | data_GSE186458/*.bw | 01_intermediate/run_…/beta_raw.npz | 已验证（md5 复跑一致） |
 | kidney02_segment.py | kidney-line | beta_raw.npz | segments_kidney_hg38.tsv | 已验证 |
-| kidney03_score.py | kidney-line | segments + gates_v2.2.yaml | 02_final/panel_markers_*.tsv | 已验证（AUC 0.676） |
+| kidney03_score.py | kidney-line | segments + gates_v1.0.yaml | 02_final/panel_markers_*.tsv | 已验证（性能达标） |
 
 ### 7. .gitignore（D7 白名单式）
 
@@ -243,7 +243,7 @@ portfolio/
 | `Final Report v2 (copy).pdf` | N3 空格括号；F1c 裸限定词+copy；F5 大写 | `panel_report_final_v2.pdf` |
 | `final/`、`new/`、`temp/` | F1c/N6 裸限定词 | `02_final/`、`explore/scaling-test_…/` |
 | `数据_2026.xlsx` | N3 中文名 | `beta_matrix_20261111.tsv` |
-| `markers.tsv`（坐标无 build） | F12 | `markers_kidney_hg38_v2.3.tsv` |
+| `markers.tsv`（坐标无 build） | F12 | `markers_kidney_hg38_v2.0.tsv` |
 | `markers_v3.2.1.tsv` | F2 三段式版本 | `markers_v3.2.tsv` |
 | `phase1_hyper.py` | N5/F8 非零填充（新建件） | `phase01_hyper.py`（存量按 F5 冻结） |
 | `Kidney_Markers/` | N1 大写 | `kidney-markers/` 或并入线目录 |
