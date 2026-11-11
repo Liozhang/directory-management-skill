@@ -1,6 +1,6 @@
 # 目录与文件管理标准 v3.1
 
-> 正本位置：~/aisoft/directory-management-skill/standard.md；入口：SKILL.md；示例：examples.md；引用来源：references.md。
+> 正本位置：~/.claude/skills/directory-management/standard.md（本机安装位；源仓库 GitHub Liozhang/directory-management-skill）；入口：SKILL.md；示例：examples.md；引用来源：references.md。
 > 沿革：v1.x 迭代于 ~/.claude/directory-management.md（2026-11-11 建立并经逐条裁定），v2.0 整合为 skill 正本并新增场景索引。
 
 ## 〇、使用说明
